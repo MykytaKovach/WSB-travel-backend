@@ -9,6 +9,9 @@ const router = express.Router();
 
 
 //GET REQUESTS
+router.get('/',(req,res)=>{
+    res.status(200).send('success')
+})
 router.get('/me',auth,async (req,res)=>{
         res.status(200).send(req.user);
 });
