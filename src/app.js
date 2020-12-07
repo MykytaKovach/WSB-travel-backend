@@ -15,6 +15,6 @@ app.use(userRouter);
 app.use(tripRouter);
 
 
-//RUN THE SERVER
+//RUN THE SERVE
 
 module.exports=app;
