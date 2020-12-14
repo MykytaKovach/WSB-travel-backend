@@ -3,6 +3,7 @@ const express = require('express');
 const User = require('../dataBase/models/user');
 const Company = require('../dataBase/models/company')
 const auth = require('../middleware/auth');
+const mail = require('@sendgrid/mail')
 
 // CREATING A ROUTER INSTANCE
 const router = express.Router();
