@@ -34,6 +34,16 @@ router.post('/users',async (req,res)=>{
         await user.save();
         //IF USER WAS CREATED AUTHENTICATE HIM AUTOMATICALY
         const token = await user.generateJWT();
+        const msg = {
+            to: user.email,
+            from: 'trip@planner.com',
+            subject: 'Welcome!',
+            text: `${user.firstName.charAt(0).toUpperCase() +user.firstName.slice(1)},  
+            We are glad that you joined us!  
+            Best regards, 
+            Trip-planner team!`
+            };
+            mail.send(msg);
         res.status(201).send({user,token})
     } catch(error){
         res.status(400).send(error)

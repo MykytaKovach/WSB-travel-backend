@@ -106,19 +106,7 @@ userSchema.pre('save',async function(next){
     if(user.isModified('password')){
         user.password = await bcrypt.hash(user.password , 8);
     };
-    if(user.isModified('role')){
-        //ROLE IS BEING MODIFIED ONLY WHEN USER IS BEING CREATED
-    const msg = {
-        to: user.email,
-        from: 'trip@planner.com',
-        subject: 'Welcome!',
-        text: `${user.firstName.charAt(0).toUpperCase() +user.firstName.slice(1)},  
-        We are glad that you joined us!  
-        Best regards, 
-        Trip-planner team!`
-        };
-        mail.send(msg);
-    };
+    
     
     next()
 });
