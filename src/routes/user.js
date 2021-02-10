@@ -44,7 +44,7 @@ router.post('/users',async (req,res)=>{
             Best regards, 
             Trip-planner team!`
             };
-            mail.send(msg);
+            // mail.send(msg);
         res.status(201).send({user,token})
     } catch(error){
         res.status(400).send(error)
